@@ -12,9 +12,14 @@ function ajustaTamanhoPalcoJogo() {
 
 ajustaTamanhoPalcoJogo();
 
-//Gerando posições randomicas para o objeto mosca
+//Gerando posições randomicas para o objeto mosquito
 
 function posicaoRandomica() {
+
+    //remover mosquito anterior (caso exsita)
+    if (document.getElementById('mosquito')) {
+        document.getElementById('mosquito').remove();
+    }
 
     var posicaoX = Math.floor(Math.random() * largura) - 90;
     var posicaoY = Math.floor(Math.random() * altura) - 90;
@@ -26,19 +31,20 @@ function posicaoRandomica() {
 
     //Criando o elemento HTML
 
-    var mosca = document.createElement('img');
+    var mosquito = document.createElement('img');
 
-    mosca.src = 'img/mosca.png';
-    mosca.className = tamanhoAleatorio() + ' ' + ladoAleatorio();
-    mosca.style.left = posicaoX + 'px';
-    mosca.style.top = posicaoY + 'px';
-    mosca.style.position = 'absolute';
+    mosquito.src = 'img/mosquito.png';
+    mosquito.className = tamanhoAleatorio() + ' ' + ladoAleatorio();
+    mosquito.style.left = posicaoX + 'px';
+    mosquito.style.top = posicaoY + 'px';
+    mosquito.style.position = 'absolute';
+    mosquito.id = 'mosquito'
 
-    document.body.appendChild(mosca);
+    document.body.appendChild(mosquito);
     
 }
 
-//Gerando tamanhos aleatórios para o objeto mosca
+//Gerando tamanhos aleatórios para o objeto mosquito
 
 function tamanhoAleatorio() {
     var classe = Math.floor(Math.random() * 3);
@@ -46,16 +52,18 @@ function tamanhoAleatorio() {
     switch (classe) {
         case 0:
             
-            return 'mosca1';
+            return 'mosquito1';
     
         case 1:
-            return 'mosca2';
+            return 'mosquito2';
 
         case 2:
 
-            return 'mosca3';
+            return 'mosquito3';
     }
 }
+
+//Gerando os lados aleatórios da mosquito
 
 function ladoAleatorio() {
     var classe = Math.floor(Math.random() * 2);
