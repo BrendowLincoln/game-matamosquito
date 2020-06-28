@@ -21,9 +21,11 @@ function posicaoRandomica() {
     if (document.getElementById('mosquito')) {
         document.getElementById('mosquito').remove();
 
+
+        //controlando os pontos de vidas e game over
         if(vidas > 3) {
             alert('Interromper o jogo (game over)');
-            window.location.reload();
+            window.location.href = 'fim_de_jogo.html';
         } else{
             document.getElementById('v' + vidas).src="/img/coracao_vazio.png";
             vidas++;
